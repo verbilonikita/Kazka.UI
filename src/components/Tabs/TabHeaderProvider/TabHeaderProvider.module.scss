@@ -1,0 +1,12 @@
+.kazka-tabHeaderProvider {
+  min-width: fit-content;
+  max-width: 100%;
+
+  &-v-underline {
+    border-bottom: 1px solid #326273;
+  }
+
+  &-v-outline {
+    border: 1px solid #326273;
+  }
+}

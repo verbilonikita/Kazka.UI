@@ -1,0 +1,53 @@
+.kazka-button {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--kazka-br-sm);
+  // padding: var(--kazka-p-md);
+  color: white;
+
+  &-in {
+  }
+
+  &-out {
+  }
+
+  &-link {
+  }
+
+  &-primary {
+    background-color: var(--kazka-primary);
+    &:hover {
+      background-color: var(--kazka-primary-hover);
+    }
+  }
+
+  &-error {
+    background-color: var(--kazka-error);
+    &:hover {
+      background-color: var(--kazka-error-hover);
+    }
+  }
+
+  &-xs {
+    font-size: var(--kazka-xs);
+  }
+  &-sm {
+    font-size: var(--kazka-sm);
+  }
+  &-md {
+    font-size: var(--kazka-md);
+  }
+  &-lg {
+    font-size: var(--kazka-lg);
+  }
+  &-xl {
+    font-size: var(--kazka-xl);
+  }
+
+  &-text {
+    color: black;
+    background-color: transparent;
+  }
+}

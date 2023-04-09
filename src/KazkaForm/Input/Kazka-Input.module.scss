@@ -1,0 +1,29 @@
+.kazka-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    var(--kazka-grey) 0px 0px 0px 1px;
+
+  &-xs {
+    font-size: var(--kazka-xs);
+  }
+  &-sm {
+    font-size: var(--kazka-sm);
+  }
+  &-md {
+    font-size: var(--kazka-md);
+  }
+  &-lg {
+    font-size: x-large;
+  }
+  &-xl {
+    font-size: var(--kazka-xl);
+  }
+
+  &-error {
+    border: 1px solid var(--kazka-error);
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,10 @@
+.stack {
+  display: flex;
+  &-h {
+    flex-direction: row;
+  }
+
+  &-v {
+    flex-direction: column;
+  }
+}

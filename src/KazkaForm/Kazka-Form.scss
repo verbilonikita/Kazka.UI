@@ -1,0 +1,25 @@
+.customForm {
+  width: 100%;
+}
+
+.kazka-input-error {
+  border: 10px solid var(--kazka-error);
+}
+
+.kazka-size {
+  &-xs {
+    font-size: var(--kazka-xs);
+  }
+  &-sm {
+    font-size: var(--kazka-sm);
+  }
+  &-md {
+    font-size: var(--kazka-md);
+  }
+  &-lg {
+    font-size: var(--kazka-lg);
+  }
+  &-xl {
+    font-size: var(--kazka-xl);
+  }
+}

@@ -1,0 +1,58 @@
+.kazka-select-box {
+  width: 100%;
+  position: relative;
+}
+
+.kazka-select {
+  width: 100%;
+  cursor: pointer;
+
+  &::placeholder {
+    color: var(--kazka-grey);
+  }
+
+  &-xs {
+    font-size: var(--kazka-xs);
+  }
+  &-sm {
+    font-size: var(--kazka-sm);
+  }
+  &-md {
+    font-size: var(--kazka-md);
+  }
+  &-lg {
+    font-size: var(--kazka-lg);
+  }
+  &-xl {
+    font-size: var(--kazka-xl);
+  }
+}
+
+.kazka-select-input {
+  width: 100%;
+  border: 1px solid var(--kazka-grey);
+  border-radius: var(--kazka-xs);
+  display: flex;
+  overflow: hidden;
+  z-index: 9999;
+  padding: 0 1rem;
+}
+
+.kazka-select-right {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.kazka-options {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  max-height: 20rem;
+  border-radius: var(--kazka-xs);
+  border: 1px solid var(--kazka-grey);
+  padding: 1rem 0;
+  overflow: scroll;
+  z-index: 9999;
+}

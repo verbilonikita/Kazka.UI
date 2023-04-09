@@ -1,0 +1,25 @@
+.pin {
+  display: flex;
+  text-align: center;
+  height: fit-content;
+  width: fit-content;
+  &-xs {
+    width: var(--kazka-xs);
+    height: var(--kazka-xs);
+  }
+  &-sm {
+    width: var(--kazka-sm);
+    height: var(--kazka-sm);
+  }
+  &-md {
+    width: var(--kazka-md);
+  }
+  &-lg {
+    width: var(--kazka-xl);
+    height: var(--kazka-xl);
+  }
+  &-xl {
+    width: 60px;
+    width: 60px;
+  }
+}

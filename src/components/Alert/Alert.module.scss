@@ -1,0 +1,80 @@
+.kazka-alert {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  gap: 1rem;
+  min-width: fit-content;
+
+  &-success {
+    border: 1px solid #1b4332;
+    background-color: #95d5b2;
+  }
+  &-info {
+    border: 1px solid #05254d;
+    background-color: #72a0d7;
+  }
+  &-error {
+    border: 1px solid #2b0006;
+    background-color: rgb(255, 197, 200);
+  }
+  &-warning {
+    border: 1px solid #2b0006;
+    background-color: #edff63;
+  }
+}
+
+.kazka-alert_main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &_icon {
+    border-radius: 50%;
+
+    &-success {
+      color: #1b4332;
+    }
+    &-info {
+      color: #183252;
+    }
+    &-error {
+      color: #a90016;
+    }
+    &-warning {
+      color: #2b0006;
+    }
+  }
+
+  &_title {
+    font-weight: 600;
+    &-success {
+      color: #1b4332;
+    }
+    &-info {
+      color: #03172f;
+    }
+    &-error {
+      color: #2b0006;
+    }
+    &-warning {
+      color: #2b0006;
+    }
+  }
+
+  &_text {
+    &-success {
+      color: #1b4332;
+    }
+    &-info {
+      color: #244772;
+    }
+    &-error {
+      color: #2b0006;
+    }
+    &-warning {
+      color: #2b0006;
+    }
+  }
+}

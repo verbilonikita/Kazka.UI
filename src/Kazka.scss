@@ -1,0 +1,27 @@
+@import "./css-variables/index.scss";
+
+.kazka-xs {
+  font-size: var(--kazka-xs);
+}
+
+.kazka-sm {
+  font-size: var(--kazka-sm);
+}
+
+.kazka-md {
+  font-size: var(--kazka-md);
+}
+
+.kazka-lg {
+  font-size: var(--kazka-lg);
+}
+
+.kazka-xl {
+  font-size: var(--kazka-xl);
+}
+
+.remove {
+  &-m {
+    margin: 0;
+  }
+}

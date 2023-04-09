@@ -1,0 +1,67 @@
+.kazka-tabs-header_button {
+  padding: 1rem;
+  color: #326273;
+
+  &-fw {
+    flex: 1;
+  }
+}
+
+.kazka-tabs-header_button {
+  &-v-undeline {
+    &-active {
+      position: relative;
+      border-radius: 0.5rem 0.5rem 0 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #326273;
+        bottom: 0;
+        left: 0;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+  }
+
+  &-v-outline {
+    &-active {
+      box-shadow: none;
+      border-radius: 3rem;
+      border: 1px solid #326273;
+    }
+
+    &-inactive {
+      box-shadow: none;
+      outline: none;
+      border-radius: 0;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        transform: translate(-50%);
+        left: 50%;
+        width: 70%;
+        height: 1px;
+        background-color: #326273;
+        bottom: 0;
+      }
+
+      &:hover {
+        &::after {
+          content: "";
+          position: absolute;
+          transform: translate(-50%);
+          left: 50%;
+          width: 70%;
+          height: 100%;
+          z-index: -1;
+          background-color: rgb(147, 147, 147);
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

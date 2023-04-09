@@ -1,0 +1,21 @@
+.menu {
+  position: relative;
+
+  &-list {
+    z-index: 9999;
+    position: absolute;
+    border-radius: 5px;
+    // box-shadow: var($box-shadow);
+    color: var(--color);
+    border: 1px solid rgb(197, 197, 197);
+    width: 300px;
+    height: 300px;
+
+    // &-top {
+    //   top: -1rem;
+    // }
+    // &-bot {
+    //   bottom: -1rem;
+    // }
+  }
+}
