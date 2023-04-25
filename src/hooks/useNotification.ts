@@ -7,6 +7,12 @@ import {
   NotificationProviderContext,
 } from "../providers/NotificationProvider/NotificationProvider.utils";
 
+/**
+ *
+ * Hook to control notifications list.
+ * @returns function that accepts Notification props e.g. title, size.
+ */
+
 const useNotification = () => {
   const { addNotification } = useContext(
     NotificationProviderContext

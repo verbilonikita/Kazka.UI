@@ -1,1 +1,10 @@
 @import "./Kazka.variables.scss";
+@import "./Kazka.sizes.scss";
+@import "./Kazka.colours.scss";
+
+*::after,
+*::before,
+* {
+  padding: 0;
+  margin: 0;
+}

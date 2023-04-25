@@ -1,16 +1,8 @@
 import { useEffect, useState } from "react";
-import { EnumTabVariant, TabContext } from "./TabProvider.types";
+import { ITabsProvider, TabContext } from "./TabProvider.types";
 import VStack from "../Stack/VStack";
 
-interface ITabs {
-  children: React.ReactElement[];
-  fullWidth?: boolean;
-  initTab?: number;
-  variant: keyof typeof EnumTabVariant;
-  onChange?: (tab: number) => number;
-}
-
-const TabProvider: React.FC<ITabs> = ({
+const TabProvider: React.FC<ITabsProvider> = ({
   children,
   fullWidth = false,
   initTab = 0,
@@ -34,8 +26,8 @@ const TabProvider: React.FC<ITabs> = ({
   return (
     <TabContext.Provider value={ContextValue}>
       <VStack gap={0}>
-        {children[0]}
-        {children[1]}
+        {children?.[0]}
+        {children?.[1]}
       </VStack>
     </TabContext.Provider>
   );

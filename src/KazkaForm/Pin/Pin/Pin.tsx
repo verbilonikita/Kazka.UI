@@ -1,42 +1,51 @@
-import React, { LegacyRef, RefObject, useState } from "react";
+import React, { LegacyRef, useState } from "react";
+
+// types
+import IPin from "./Pin.types";
+
 // styles
 import "./Pin.scss";
-
-interface IPin {
-  size?: string;
-  onChange: (value: string, position: number, add: boolean) => void;
-  position: number;
-  currRef?: RefObject<unknown>;
-  changeFocus: any;
-}
+import useClass from "../../../hooks/useClass";
 
 const Pin: React.FC<IPin> = ({
   size = "md",
   onChange,
+  className = "",
   position,
   currRef,
   changeFocus,
+  ...props
 }) => {
   const [currentValue, setCurrentValue] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const lastChar = value.charAt(value.length - 1);
     setCurrentValue(lastChar);
-    onChange(lastChar, position, true);
+    if (onChange) {
+      onChange(lastChar, position as number, true);
+    }
   };
 
   const onBackSpace = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const backspace = e.code === "Backspace";
     const value = (e.target as HTMLInputElement).value;
-    if (backspace && !value) {
+    if (backspace && !value && changeFocus) {
       changeFocus(position);
     }
   };
 
+  const pinClassName = useClass({
+    [`pin-${size}`]: size,
+    ["pin"]: true,
+    [`font-${size}`]: size,
+    className: className,
+  });
+
   return (
     <input
+      {...props}
       ref={currRef as unknown as LegacyRef<HTMLInputElement> | undefined}
-      className={`kazka-size-${size} pin pin-${size}`}
+      className={pinClassName}
       // type="password"
       onChange={handleChange}
       onKeyDown={onBackSpace}

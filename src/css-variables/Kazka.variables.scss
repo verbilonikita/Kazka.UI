@@ -1,38 +1,13 @@
 // colors
 :root {
-  --kazka-grey: #DDDDDD;
-  --kazka-bs: box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  --kazka-input-outline: #B2C8DF;
-
+  --kazka-bs: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  --kazka-input-outline: #b2c8df;
 
   // primary
   --kazka-primary: #367ab2;
   --kazka-primary-hover: #195688;
   // error
-  --kazka-error: #DC0000;
+  --kazka-error: #dc0000;
   --kazka-error-hover: #a30505;
-
-
-}
-
-//sizes
-:root {
-  --kazka-xs: 10px;
-  --kazka-sm: 15px;
-  --kazka-md: 20px;
-  --kazka-lg: 30px;
-  --kazka-xl: 40px;
-}
-
-// radius 
-:root {
-  --kazka-br-sm: 5px;
-}
-
-// padding
-:root {
-  --kazka-p-xs: 5px;
-  --kazka-p-sm: 10px;
-  --kazka-p-md: 15px;
-  --kazka-p-lg: 20px;
 }

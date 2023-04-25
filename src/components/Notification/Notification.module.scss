@@ -2,9 +2,17 @@
   border: 1px solid black;
   padding: 0.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: flex-start;
   align-items: flex-start;
   pointer-events: all;
   max-width: 30rem;
+  background-color: white;
+  color: #000000;
+  background-color: #9ec68e;
+}
+
+.kazka-icon {
+  color: #7fb77e;
+  border: 1px solid black;
 }

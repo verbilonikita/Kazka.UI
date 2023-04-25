@@ -1,14 +1,20 @@
-import noAvatar from "../../../assets/no-avatar.png";
+import useClass from "../../hooks/useClass";
+// dto
+import IAvatar from "./Avatar.types";
 // styles
-import "./Avatar.scss";
+import styles from "./Avatar.module.scss";
 
-interface IAvatar {
-  className?: string;
-  src: string;
-}
-
-const Avatar: React.FC<IAvatar> = ({ className }) => {
-  return <img src={noAvatar} className={`kazka-avatar ${className} `} />;
+const Avatar: React.FC<IAvatar> = ({ className, src, ...rest }) => {
+  return (
+    <img
+      src={
+        src ??
+        "https://avtovelomoto.by/upload/Sh/imageCache/138/625/6258991984917302.jpg.webp"
+      }
+      className={styles["avatar"]}
+      {...rest}
+    />
+  );
 };
 
 export default Avatar;

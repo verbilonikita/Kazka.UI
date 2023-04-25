@@ -1,8 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface INotificationProps {
-  horizontal?: "left" | "center" | "right";
-  vertical?: "top" | "bottom";
   icon?: JSX.Element;
   size?: string;
   isClosable?: boolean;

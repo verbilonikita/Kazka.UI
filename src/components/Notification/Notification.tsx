@@ -23,12 +23,10 @@ import {
 import styles from "./Notification.module.scss";
 
 const Notification: React.FC<INotification> = ({
-  vertical = "top",
-  horizontal = "right",
   icon,
   size = "sm",
   isClosable = false,
-  className,
+  className = "",
   closingTimer = 3000,
   title,
   notificationId,
@@ -38,18 +36,13 @@ const Notification: React.FC<INotification> = ({
     NotificationProviderContext
   ) as INotificationProviderContext;
 
-  const [animation, setAnimation] = useState(() =>
-    getNotificationAnimation(vertical, horizontal)
-  );
-
   const NotificationClassName = useClass({
     [styles["kazka-notification"]]: true,
-    [styles[`kazka-notification-v-${vertical}`]]: vertical,
-    [styles[`kazka-notification-h-${horizontal}`]]: true,
+    [className]: className,
   });
 
   const iconClassName = useClass({
-    [`kazka-${size}`]: true,
+    [styles["kazka-icon"]]: true,
   });
 
   useEffect(() => {
@@ -60,11 +53,19 @@ const Notification: React.FC<INotification> = ({
   }, []);
 
   return (
-    <motion.div {...animation} exit={{ opacity: 0 }}>
+    <motion.div
+      initial={{ x: "100%" }}
+      animate={{ x: 0 }}
+      exit={{ opacity: 0 }}
+    >
       <HStack {...rest} className={NotificationClassName}>
-        <div>{icon}</div>
+        {icon && (
+          <Text className={iconClassName} size={size}>
+            {icon}
+          </Text>
+        )}
         <VStack>
-          <Text size={size}>Blublu</Text>
+          <Text size={size}>{title}</Text>
           <Text size={size}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga
             eveniet tempore iure natus maiores possimus. Magnam itaque

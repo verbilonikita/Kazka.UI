@@ -7,12 +7,7 @@ import useClass from "../../../../hooks/useClass";
 import { TabContext } from "../../TabProvider.types";
 // styles
 import styles from "./TabHeader.module.scss";
-
-interface ITabHeader {
-  children: string | React.ReactElement;
-  handleClick?: () => void;
-  tabIndex?: number;
-}
+import { ITabHeader } from "./TabHeader.types";
 
 const TabHeader: React.FC<ITabHeader> = ({
   children,

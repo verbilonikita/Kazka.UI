@@ -1,14 +1,12 @@
 import React from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
+// types
+import { IMenu } from "./Menu.types";
 
 // styles
-import "./Kazka-Menu.scss";
+import "./Menu.scss";
 
-interface IMenu {
-  btnText: string;
-}
-
-const KMenu: React.FC<IMenu> = ({ btnText }) => {
+const Menu: React.FC<IMenu> = ({ btnText, ...rest }) => {
   const [hovered, setHovered] = useState<boolean>();
   const [menuPosition, setMenuPosition] = useState<any>("top");
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
@@ -55,4 +53,4 @@ const KMenu: React.FC<IMenu> = ({ btnText }) => {
   );
 };
 
-export default React.memo(KMenu);
+export default Menu;

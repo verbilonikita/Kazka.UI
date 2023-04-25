@@ -1,36 +1,36 @@
 import React from "react";
 
-// styles
-import "./Kazka-Option.scss";
+import useClass from "../../../hooks/useClass";
+import IOption from "./Option.types";
 
-interface IOption {
-  children: React.ReactElement | string;
-  value: string;
-  setValue?: (name: string, value: string) => void;
-  id: string;
-  name?: string;
-  validate?: boolean;
-  size?: string;
-}
+// styles
+import styles from "./Option.module.scss";
 
 const Option: React.FC<IOption> = ({
   children,
   value,
+  defaultValue = false,
+  className = "",
   setValue,
-  id,
   name,
   size,
+  ...rest
 }) => {
   const handleClick = () => {
     if (setValue && name) setValue(name, value);
   };
+
+  const classes = useClass(
+    {
+      [styles["kazka-option"]]: true,
+      [styles[`kazka-size-${size}`]]: size,
+      [className]: className,
+    },
+    [size]
+  );
+
   return (
-    <div
-      className={`kazka-option kazka-size-${size}`}
-      onClick={handleClick}
-      key={id}
-      id={id}
-    >
+    <div {...rest} className={classes} onClick={handleClick}>
       {children}
     </div>
   );

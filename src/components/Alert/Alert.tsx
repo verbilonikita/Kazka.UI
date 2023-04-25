@@ -17,24 +17,24 @@ const Alert: React.FC<IAlert> = ({
   type = "info",
 }) => {
   const alertClasses = useClass({
-    [styles["kazka-alert"]]: true,
-    [styles[`kazka-alert-${type}`]]: true,
+    [styles["alert"]]: true,
+    [styles[`alert-${type}`]]: true,
   });
 
   const iconClasses = useClass({
-    [styles["kazka-alert_main_icon"]]: true,
-    [styles[`kazka-alert_main_icon-${type}`]]: true,
-    [styles[`kazka-${size}`]]: true,
+    [styles["alert_main_icon"]]: true,
+    [styles[`alert_main_icon-${type}`]]: true,
+    [styles[`${size}`]]: true,
   });
 
   const titleClassName = useClass({
-    [styles["kazka-alert_main_title"]]: true,
-    [styles[`kazka-alert_main_title-${type}`]]: true,
+    [styles["alert_main_title"]]: true,
+    [styles[`alert_main_title-${type}`]]: true,
   });
 
   const textClassName = useClass({
-    [styles["kazka-alert_main_text"]]: true,
-    [styles[`kazka-alert_main_text-${type}`]]: true,
+    [styles["alert_main_text"]]: true,
+    [styles[`alert_main_text-${type}`]]: true,
   });
 
   return (

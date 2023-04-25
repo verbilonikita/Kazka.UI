@@ -1,8 +1,12 @@
-.kazka-accordion {
-  width: 100%;
-  border: 1px solid black;
-}
+.acc {
+  overflow: hidden;
 
-.kazka-accordion_body {
-  padding: 1rem;
+  &-border {
+    border: 1px solid var(--kazka-grey);
+    border-radius: var(--kazka-br-xs);
+  }
+
+  &-shadow {
+    box-shadow: var(--kazka-bs);
+  }
 }

@@ -1,6 +1,7 @@
 import { IStack } from "./Stack-DTO";
 
-import clkz from "../../hooks/useClass";
+import useClass from "../../hooks/useClass";
+// styles
 import styles from "./Stack.module.scss";
 
 const HStack: React.FC<IStack> = ({
@@ -9,14 +10,17 @@ const HStack: React.FC<IStack> = ({
   justify,
   align,
   style,
-  className,
+  className = "",
   ...props
 }) => {
-  const classNames = clkz({
-    [styles["stack"]]: true,
-    [styles["stack-h"]]: true,
-    [className as string]: Boolean(className),
-  });
+  const classNames = useClass(
+    {
+      [styles["stack"]]: true,
+      [styles["stack-h"]]: true,
+      [className]: className,
+    },
+    [className]
+  );
 
   return (
     <div

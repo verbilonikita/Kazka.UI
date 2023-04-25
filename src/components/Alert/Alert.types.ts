@@ -8,7 +8,7 @@ enum EnumAlertTypes {
   "warning",
 }
 
-interface IAlertType {
+export interface IAlertProps {
   title?: string;
   message: string;
   size?: keyof typeof EnumKazkaSizes;
@@ -19,5 +19,5 @@ interface IAlertType {
 }
 
 export interface IAlert
-  extends Omit<InputHTMLAttributes<HTMLButtonElement>, keyof IAlertType>,
-    IAlertType {}
+  extends Omit<InputHTMLAttributes<HTMLButtonElement>, keyof IAlertProps>,
+    IAlertProps {}

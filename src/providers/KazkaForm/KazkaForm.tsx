@@ -5,7 +5,6 @@ import {
   useForm,
   UseFormSetError,
 } from "react-hook-form";
-import VStack from "../components/Stack/VStack";
 // styles
 import "./Kazka-Form.scss";
 
@@ -27,13 +26,10 @@ const KazkaForm: React.FC<IKazkaForm> = ({
     e.preventDefault();
     const values = methods.getValues();
     const dataValid = await methods.trigger(Object.keys(values) as never[]);
-    console.log(dataValid);
     if (dataValid) {
       onSubmit(values, methods.setError);
     }
   };
-
-  console.log(methods.formState);
 
   useEffect(() => {
     if (onError) {

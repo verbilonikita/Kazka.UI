@@ -3,9 +3,10 @@
   box-shadow: none;
   border: none;
   cursor: pointer;
+  background-color: white;
   border-radius: var(--kazka-br-sm);
-  // padding: var(--kazka-p-md);
-  color: white;
+  padding: var(--kazka-p-md);
+  color: rgb(0, 0, 0);
 
   &-in {
   }
@@ -28,22 +29,6 @@
     &:hover {
       background-color: var(--kazka-error-hover);
     }
-  }
-
-  &-xs {
-    font-size: var(--kazka-xs);
-  }
-  &-sm {
-    font-size: var(--kazka-sm);
-  }
-  &-md {
-    font-size: var(--kazka-md);
-  }
-  &-lg {
-    font-size: var(--kazka-lg);
-  }
-  &-xl {
-    font-size: var(--kazka-xl);
   }
 
   &-text {

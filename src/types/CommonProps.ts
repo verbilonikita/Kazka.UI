@@ -1,5 +1,5 @@
+import { EnumKazkaSizes } from "./Common.types";
+
 export interface ICommonProps {
-  className?: string;
-  size?: string;
-  style?: React.CSSProperties;
+  size?: keyof typeof EnumKazkaSizes;
 }

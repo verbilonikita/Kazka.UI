@@ -7,13 +7,9 @@ import HStack from "../../Stack/HStack";
 import { TabContext } from "../TabProvider.types";
 // styles
 import styles from "./TabHeaderProvider.module.scss";
+import { ITabMainProvider } from "../TabMainProvider/TabMainProvider.types";
 
-interface ITabHeaderProvider {
-  children: React.ReactElement[];
-  className?: string;
-}
-
-const TabHeaderProvider: FC<ITabHeaderProvider> = ({ children }) => {
+const TabHeaderProvider: FC<ITabMainProvider> = ({ children, ...props }) => {
   const { changeTab, variant } = useContext(TabContext);
   const handleClick = useCallback((i: number) => changeTab(i), []);
 
@@ -23,8 +19,8 @@ const TabHeaderProvider: FC<ITabHeaderProvider> = ({ children }) => {
   });
 
   return (
-    <HStack className={className}>
-      {children.map((tab, i) =>
+    <HStack {...props} className={className}>
+      {children?.map((tab, i) =>
         cloneElement(tab, {
           handleClick: () => handleClick(i),
           tabIndex: i,

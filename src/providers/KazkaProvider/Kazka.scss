@@ -1,0 +1,48 @@
+@import "../../css-variables/index.scss";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.font {
+  &-xs {
+    font-size: var(--kazka-xs);
+  }
+
+  &-sm {
+    font-size: var(--kazka-sm);
+  }
+
+  &-md {
+    font-size: var(--kazka-md);
+  }
+
+  &-lg {
+    font-size: var(--kazka-lg);
+  }
+
+  &-xl {
+    font-size: var(--kazka-xl);
+  }
+}
+
+.p {
+  &-sm {
+    padding: 5px;
+  }
+  &-md {
+    padding: 10px;
+  }
+  &-lg {
+    padding: 15px;
+  }
+
+  &-xl {
+    padding: 20px;
+  }
+}

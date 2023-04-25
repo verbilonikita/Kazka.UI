@@ -1,13 +1,10 @@
 import React, { useContext, useMemo } from "react";
 import useClass from "../../../hooks/useClass";
 import { TabContext } from "../TabProvider.types";
+import { ITabMainProvider } from "./TabMainProvider.types";
+
 // styles
 import styles from "./TabMainProvider.module.scss";
-
-interface ITabMainProvider {
-  children: React.ReactElement[];
-  gap?: boolean;
-}
 
 const TabMainProvider: React.FC<ITabMainProvider> = ({
   children,
@@ -16,7 +13,7 @@ const TabMainProvider: React.FC<ITabMainProvider> = ({
   const { tabShown } = useContext(TabContext);
 
   const currentScreen = useMemo(
-    () => children.find((_, i) => i === tabShown),
+    () => children?.find((_, i) => i === tabShown),
     [tabShown]
   );
 

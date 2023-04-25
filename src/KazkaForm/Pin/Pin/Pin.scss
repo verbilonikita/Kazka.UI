@@ -1,8 +1,6 @@
 .pin {
   display: flex;
   text-align: center;
-  height: fit-content;
-  width: fit-content;
   &-xs {
     width: var(--kazka-xs);
     height: var(--kazka-xs);

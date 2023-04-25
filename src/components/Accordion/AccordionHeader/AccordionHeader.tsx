@@ -1,52 +1,65 @@
+import { useContext, useMemo, memo } from "react";
+// context
+import { AccordionContext } from "../AccordionContext";
+// components
 import HStack from "../../Stack/HStack";
-import Text from "../../Typography/Text/Text";
-import { motion } from "framer-motion";
-import { AiOutlineArrowDown } from "react-icons/ai";
+import AccordionHeaderIcon from "./AccordionHeaderIcon/AccordionHeaderIcon";
+import AccordionHeaderTitle from "./AccordionHeaderTitle/AccordionHeaderTitle";
+// types
+import IAccordionHeader from "./AccordionHeader.types";
 // styles
 import styles from "./AccordionHeader.module.scss";
+import useClass from "../../../hooks/useClass";
 
-interface IAccordionHeader {
-  handleToggle: () => void;
-  open: boolean;
-  customTitle?: React.ReactElement;
-  customButton?: React.ReactElement;
-  title?: string;
-  size?: string;
-}
-
+/**
+ * Accordion component.
+ * @param open (boolean).
+ */
 const AccordionHeader: React.FC<IAccordionHeader> = ({
-  handleToggle,
-  open,
-  title,
+  ellipsis,
+  fontWeight,
+  children,
   customTitle,
-  customButton,
-  size,
+  customIcon,
+  className = "",
+  size = "md",
 }) => {
+  const AccordionContextValue = useContext(AccordionContext);
+
+  const textSize = useMemo(
+    () => AccordionContextValue?.size || size,
+    [AccordionContextValue?.size, size]
+  );
+
+  const handleClick = () => {
+    AccordionContextValue?.updateAccordionList(
+      AccordionContextValue?.accordionId as string
+    );
+  };
+
+  const classNames = useClass(
+    {
+      [styles["acc_h"]]: true,
+      [className]: className,
+      [styles["acc_h-active"]]: AccordionContextValue?.isAccordionOpen,
+    },
+    [AccordionContextValue?.isAccordionOpen]
+  );
+
   return (
-    <HStack
-      className={styles["kazka-accordion_header"]}
-      justify="space-between"
-      align="center"
-      onClick={handleToggle}
-    >
+    <HStack className={classNames} onClick={handleClick}>
       {customTitle || (
-        <Text size={size} ellipsis>
-          {title}
-        </Text>
+        <AccordionHeaderTitle
+          textSize={textSize}
+          ellipsis={ellipsis}
+          text={children}
+          fontWeight={fontWeight}
+        />
       )}
 
-      {customButton || (
-        <motion.div
-          initial={{ rotate: 0 }}
-          animate={open ? { rotate: "180deg", y: "-3px" } : { rotate: "0deg" }}
-        >
-          <Text size={size}>
-            <AiOutlineArrowDown width="100%" height="100%" />
-          </Text>
-        </motion.div>
-      )}
+      {customIcon || <AccordionHeaderIcon textSize={textSize} />}
     </HStack>
   );
 };
 
-export default AccordionHeader;
+export default memo(AccordionHeader);

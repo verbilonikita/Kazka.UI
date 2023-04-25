@@ -1,10 +1,11 @@
+import { StyleHTMLAttributes } from "react";
 import { ICommonProps } from "../../../types/CommonProps";
 
 interface ITextEnum {
-  children: React.ReactNode | string | number;
   ellipsis?: boolean;
-  size?: string;
+  value?: string;
   textAlign?: "right" | "left" | "center";
+  fontWeight?: number | string | undefined;
 }
 
 export default interface IText

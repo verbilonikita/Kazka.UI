@@ -1,49 +1,64 @@
-import { motion, AnimatePresence } from "framer-motion";
-
-import VStack from "../Stack/VStack";
-
-import useToggle from "../../hooks/useToggle";
-import AccordionHeader from "./AccordionHeader/AccordionHeader";
-
+import { useContext, useEffect, useId, memo } from "react";
+// hooks
+import useClass from "../../hooks/useClass";
+// contexts
+import {
+  AccordionProviderContext,
+  IAccordionProviderContext,
+} from "../../providers/AccordionProvider/AccordionProviderContext";
+import { AccordionContext } from "./AccordionContext";
+// types
+import IAccordion from "./Accordion.types";
 // styles
 import styles from "./Accordion.module.scss";
-import AccordionBody from "./AccordionBody/AccordionBody";
 
-interface IAccordion {
-  children: React.ReactElement[];
-  open: boolean;
-}
+const Accordion: React.FC<IAccordion> = ({
+  children,
+  size = "md",
+  open = false,
+  className = "",
+  variant = "border",
+  isClosable = true,
+  ...rest
+}) => {
+  const accordionId = useId();
 
-const Accordion: React.FC<IAccordion> = ({ children, open }) => {
-  const classNames = `${styles["kazka-accordion"]}`;
+  const AccordionProviderValue = useContext(
+    AccordionProviderContext
+  ) as IAccordionProviderContext;
+
+  const AccordionContextValue = {
+    accordionId,
+    isAccordionOpen:
+      AccordionProviderValue?.accordionList.includes(accordionId),
+    updateAccordionList: AccordionProviderValue.updateAccordionList,
+    size: AccordionProviderValue?.size || size,
+    isClosable,
+  };
+
+  const accordionClasses = useClass(
+    {
+      [styles["acc"]]: true,
+      [styles[`acc-${variant}`]]: variant,
+      [className]: className,
+    },
+    [variant]
+  );
+
+  useEffect(() => {
+    if (open) {
+      AccordionProviderValue.updateAccordionList(accordionId);
+    }
+  }, [open]);
 
   return (
-    <div className={classNames}>
-      {children[0]}
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{
-              height: "auto",
-              opacity: 1,
-            }}
-            exit={{ height: 0 }}
-          >
-            <motion.div
-              className={styles["kazka-accordion_body"]}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { duration: 0.5 } }}
-              exit={{ opacity: 0, transition: { duration: 0 } }}
-            >
-              {children[1]}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <AccordionContext.Provider value={AccordionContextValue}>
+      <div className={accordionClasses} {...rest}>
+        {children?.[0]}
+        {children?.[1]}
+      </div>
+    </AccordionContext.Provider>
   );
 };
 
-export default Accordion;
+export default memo(Accordion);

@@ -7,7 +7,7 @@ import {
 import useClass from "../../hooks/useClass";
 // styles
 import "../../css-variables/index.scss";
-import "../../Kazka.scss";
+import "./Kazka.scss";
 import styles from "./KazkaProvider.module.scss";
 
 interface IKazkaProvider {

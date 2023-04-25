@@ -1,7 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes, InputHTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-interface IStackEnum {
-  children: React.ReactNode | React.ReactNode[];
+export interface IStackProps {
   gap?: number | string;
   align?: "stretch" | "center" | "start" | "end";
   justify?:
@@ -17,6 +16,6 @@ interface IStackEnum {
 export interface IStack
   extends Omit<
       DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-      keyof IStackEnum
+      keyof IStackProps
     >,
-    IStackEnum {}
+    IStackProps {}

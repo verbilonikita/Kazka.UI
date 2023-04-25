@@ -10,6 +10,8 @@ const Text: React.FC<IText> = ({
   size = "md",
   textAlign,
   className = "",
+  value,
+  fontWeight,
   ...props
 }) => {
   const overflow = useMemo(() => {
@@ -25,19 +27,17 @@ const Text: React.FC<IText> = ({
   }, [ellipsis]);
 
   const textClassName = useClass({
-    [`kazka-${size}`]: true,
+    [`font-${size}`]: true,
     ["remove-m"]: true,
+    [className]: true,
+    [styles["no-wrap"]]: ellipsis,
   });
 
   return (
-    <p
-      className={`${textClassName}${className ? className : ""}`}
-      style={{ textAlign }}
-      {...props}
-    >
-      {children}
+    <p className={textClassName} style={{ textAlign, fontWeight }} {...props}>
+      {children || value}
     </p>
   );
 };
 
-export default Text;
+export default React.memo(Text);

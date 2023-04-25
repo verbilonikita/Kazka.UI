@@ -1,18 +1,17 @@
 import React, { createRef, useEffect, useRef, useState } from "react";
 import { useMemo } from "react";
 import Pin from "./Pin/Pin";
-
+import IPinProvider from "./PinProvider.types";
+import HStack from "../../components/Stack/HStack";
 // styles
 import "./PinProvider.scss";
 
-interface IPin {
-  size: string;
-  gap: string | number;
-  num?: number;
-  onChange: (value: string) => void;
-}
-
-const PinProvider: React.FC<IPin> = ({ size, gap, num = 4, onChange }) => {
+const PinProvider: React.FC<IPinProvider> = ({
+  size = "md",
+  gap = 10,
+  num = 4,
+  onChange,
+}) => {
   const pins = useMemo(() => {
     let arr = [];
     for (let i = 0; i < num; i++) {
@@ -23,7 +22,7 @@ const PinProvider: React.FC<IPin> = ({ size, gap, num = 4, onChange }) => {
 
   const refs = useRef(pins.map((el) => createRef()));
 
-  const [pinState, setPinState] = useState(
+  const [pinState, setPinState] = useState(() =>
     pins.reduce((accum, el) => {
       accum = {
         ...accum,
@@ -47,18 +46,16 @@ const PinProvider: React.FC<IPin> = ({ size, gap, num = 4, onChange }) => {
     const nextElement = refs.current[position + 1]?.current as HTMLElement;
     if (nextElement && value) {
       nextElement.focus();
-    } else {
-      setPinState((state) => {
-        return {
-          ...state,
-          [position]: value,
-        };
-      });
     }
+    setPinState((state) => {
+      return {
+        ...state,
+        [position]: value,
+      };
+    });
   };
 
   const changeFocus = (position: number) => {
-    console.log("focuschanged");
     const prevElement = refs.current[position - 1]?.current as HTMLElement;
     if (prevElement) {
       prevElement.focus();
@@ -66,7 +63,7 @@ const PinProvider: React.FC<IPin> = ({ size, gap, num = 4, onChange }) => {
   };
 
   return (
-    <div style={{ gap }} className="pin-provider">
+    <HStack gap={gap}>
       {pins.map((num) => (
         <Pin
           currRef={refs.current[num]}
@@ -77,7 +74,7 @@ const PinProvider: React.FC<IPin> = ({ size, gap, num = 4, onChange }) => {
           size={size}
         />
       ))}
-    </div>
+    </HStack>
   );
 };
 
