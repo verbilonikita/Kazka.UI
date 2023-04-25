@@ -11,21 +11,24 @@ import { AccordionContext } from "../AccordionContext";
 import IAccordionBody from "./AccordionBody.types";
 // styles
 import styles from "./AccordionBody.module.scss";
+import useClass from "../../../hooks/useClass";
 
-const AccordionBody: React.FC<IAccordionBody> = ({ children, size }) => {
+const AccordionBody: React.FC<IAccordionBody> = ({
+  children,
+  className = "",
+}) => {
   const ContextValue = useContext(AccordionContext);
 
-  const body = useMemo(() => {
-    return cloneElement(children, {
-      size: size || ContextValue?.size,
-    });
-  }, [size, ContextValue?.size]);
+  const classes = useClass({
+    [styles["acc_b"]]: true,
+    [className]: className,
+  });
 
   return (
     <AnimatePresence>
       {ContextValue?.isAccordionOpen && (
-        <motion.div className={styles["acc_b"]} {...animateAccordionBody}>
-          <motion.div {...animateAccordionBodyText}>{body}</motion.div>
+        <motion.div className={classes} {...animateAccordionBody}>
+          <motion.div {...animateAccordionBodyText}>{children}</motion.div>
         </motion.div>
       )}
     </AnimatePresence>

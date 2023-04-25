@@ -40,10 +40,10 @@ const AccordionHeader: React.FC<IAccordionHeader> = ({
   const classNames = useClass(
     {
       [styles["acc_h"]]: true,
-      [className]: className,
       [styles["acc_h-active"]]: AccordionContextValue?.isAccordionOpen,
+      [className]: className,
     },
-    [AccordionContextValue?.isAccordionOpen]
+    [AccordionContextValue?.isAccordionOpen, className]
   );
 
   return (

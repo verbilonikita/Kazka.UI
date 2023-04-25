@@ -13,3 +13,9 @@
     background-color: var(--kazka-grey-hover);
   }
 }
+
+.newH {
+  &:hover {
+    background-color: black;
+  }
+}

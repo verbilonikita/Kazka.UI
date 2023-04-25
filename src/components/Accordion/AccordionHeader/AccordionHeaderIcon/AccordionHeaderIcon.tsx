@@ -20,7 +20,11 @@ const AccordionHeaderIcon: React.FC<IAccordionHeaderIcon> = ({
   return (
     <motion.div
       initial={{ rotate: 0 }}
-      animate={ContextValue?.open ? { rotate: "180deg" } : { rotate: "0deg" }}
+      animate={
+        ContextValue?.isAccordionOpen
+          ? { rotate: "180deg" }
+          : { rotate: "0deg" }
+      }
     >
       <AiOutlineArrowDown display="block" className={iconClassName} />
     </motion.div>

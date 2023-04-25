@@ -8,7 +8,7 @@ interface IAccordionHeaderTitle {
   textSize: keyof typeof EnumKazkaSizes;
   ellipsis?: boolean;
   text: string;
-  fontWeight?: string;
+  fontWeight?: string | number;
 }
 
 const AccordionHeaderTitle: React.FC<IAccordionHeaderTitle> = ({

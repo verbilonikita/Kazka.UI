@@ -5,7 +5,8 @@ interface ITextEnum {
   ellipsis?: boolean;
   value?: string;
   textAlign?: "right" | "left" | "center";
-  fontWeight?: number | string | undefined;
+  fontWeight?: number | string;
+  fontSize?: number | string;
 }
 
 export default interface IText

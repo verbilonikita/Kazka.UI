@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Heading from "./Heading/Heading";
 import Text from "./Text/Text";
 import { IHeading } from "./Heading/Heading.types";
-import IText from "./Text/Text-DTO";
+import IText from "./Text/Text.types";
 
 const meta = {
   title: "Basic/Typography",

@@ -2,9 +2,9 @@ import { EnumAccordionVariant } from "../../components/Accordion/Accordion.types
 import { ICommonProps } from "../../types/CommonProps";
 
 export interface IAccordionProviderProps {
-  children: React.ReactElement | React.ReactElement[];
+  children?: React.ReactElement | React.ReactElement[];
   allowMultiple?: boolean;
-  variant: keyof typeof EnumAccordionVariant;
+  variant?: keyof typeof EnumAccordionVariant;
   isClosable?: boolean;
 }
 

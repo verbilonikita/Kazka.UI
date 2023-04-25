@@ -6,7 +6,7 @@ export interface IAccordionHeaderProps {
   size?: keyof typeof EnumKazkaSizes;
   children: string;
   ellipsis?: boolean;
-  fontWeight?: string;
+  fontWeight?: string | number;
 }
 
 export default interface IAccordionHeader
